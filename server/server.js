@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParse = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const chalk = require('chalk');
 const config = require('./config/config').get(process.env.NODE_ENV);
 const app = express();
 
@@ -151,5 +152,5 @@ app.delete('/api/delete_book', (req, res) => {
 })
 
 app.listen(config.PORT, () => {
-    console.log(`Server running on port: ${config.PORT}`)
+    console.log(`Server running on port: ${chalk.blue(config.PORT)}`)
 })
